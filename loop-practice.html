@@ -23,7 +23,13 @@
             <button type="button" onclick="sumfibonaci(parseInt(prompt('Sum Fibonaci number:')),)">Bài 5: Tổng dãy Fibonaci</button>
         </td>
         <td>
-            <button type="button" onclick="divide7(parseInt(prompt('Input amount of number:'),prompt('Divided number:')))">Bài 6: Tổng các số chia hết cho 1 số</button>
+            <button type="button" onclick="divide7(parseInt(prompt('Input amount of number:')),prompt('Divided number:'))">Bài 6: Tổng các số chia hết cho 1 số</button>
+        </td>
+        <td>
+            <button type="button" onclick="fizzbuzz(parseInt(prompt('Input amount of number:')))">Bài 7: Print Fizz-Buzz</button>
+        </td>
+        <td>
+            <button type="button" onclick="gamelottery(parseInt(prompt('Input min number:')),parseInt(prompt('Input max number:')))">Bài 8: game lottery</button>
         </td>
     </tr>
     <tr>
@@ -121,19 +127,47 @@
         let sum = 0;
         let count =0;
         let i = 0;
-        let write= "";
-        alert(i);
-        while (count <= n){
+        let write= 0;
+        let write1="";
+        while (count < n){
             i++;
-            alert(i);
-            if(i % a == 0){
-                count = count + 1;
+            if(i % a === 0){
+                count++;
                 sum = sum + i;
+                //alert(i + ", count = " + count + " sum = " + sum); //Dùng alert kiểm tra
             }
-            alert(sum);
-            write = sum;
-        }
-        document.getElementById("output").innerHTML = write;
+            write += sum;
+        }write1 += "Tổng của " + n + " số chia hết cho " + a + " là: " +write;
+        document.getElementById("output").innerHTML = write1;
     }
+
+    function fizzbuzz(n){
+        let i = 0;
+        let write = "";
+        for (i; i <n ; i++){
+            if(i % 3 === 0){
+                if(i % 5 === 0){
+                    document.write("FizzBuzz <br/>");
+                }else{
+                    document.write("Fizz <br/>");
+                }
+            }else if ( i % 5 ===0){
+                document.write("Buzz <br/>");
+            }else {document.write(i +"<br/>");}
+            //alert(i )
+        }
+    }
+
+    function gamelottery(a,b){
+        let x = Math.floor((Math.random() * b) + a);
+        for (let i=1; i<4; i++){
+            let lotery = prompt("Bạn còn " + (4-i)+" lần nhập, hãy nhập số bạn dự đoán trong khoảng " + a + " tới " + b + " vào: ");
+            if(lotery == x){
+                alert("Chúc mừng bạn đã chọn đúng ");
+            }else {alert("Chúc bạn may mắn lần sau ");}
+            //alert (x);
+        }
+    }
+
 </script>
 </html>
