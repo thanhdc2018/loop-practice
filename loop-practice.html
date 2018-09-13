@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loop-practice</title>
+</head>
+<body>
+<table>
+    <tr >
+        <td>
+            <button type="button" onclick="count100(parseInt(prompt('Input number for count:')))">Bài 1:Điền số vào để đếm</button>
+        </td>
+       <td>
+           <button type="button" onclick="temp100(parseInt(prompt('Input temperature:')))">Bài 2:Điền vào nhiệt đô</button>
+       </td>
+        <td>
+            <button type="button" onclick="fibonacissss(parseInt(prompt('Input amount of number:')))">Bài 3: Điền số lượng số Fibonaci</button>
+        </td>
+        <td>
+            <button type="button" onclick="fibonacidivide(parseInt(prompt('Divided number:')),)">Bài 4: Fibonaci chia hết</button>
+        </td>
+        <td>
+            <button type="button" onclick="sumfibonaci(parseInt(prompt('Sum Fibonaci number:')),)">Bài 5: Tổng dãy Fibonaci</button>
+        </td>
+        <td>
+            <button type="button" onclick="divide7(parseInt(prompt('Input amount of number:'),prompt('Divided number:')))">Bài 6: Tổng các số chia hết cho 1 số</button>
+        </td>
+    </tr>
+    <tr>
+        <td><br />
+            Result:
+        </td>
+        </tr>
+</table>
+<output id="output"></output>
+</body>
+<script>
+    function count100(n){
+        let count=0;
+        let write="";
+        for (let j=0; ; j++) {
+            write=write+"<br>";
+            for (let i = 0; i <j; i++) {
+                count++;
+                write=write+count+"&#160;&#160;&#160;";
+                if(count>=n){break;}
+            }
+            if(count>=n){break;}
+        }
+        document.getElementById("output").innerHTML = write;
+    }
+    function temp100(f){
+        let write="";
+        if(f>100){
+            write+=f+" quá nóng, đề nghị giảm nhiệt đô";
+        }else if(f<20){
+            write+=f+" quá lạnh, đề nghị tăng nhiệt đô";
+        }else{
+            write+=f+" thoải mái, không phải thay đổi";
+        }document.getElementById("output").innerHTML = write;
+    }
+
+    function fibonacissss(n){
+        let num1 = 0;
+        let num2 = 1;
+        let num = 1;
+        let num3 = num1+num2;
+        let write= "";
+        let i = 0;
+            while(i < n) {
+                i++;
+                num3 = num1 + num2;
+                write += " " +num3;
+                num1 = num2;
+                num2 = num3;
+             }
+
+        document.getElementById("output").innerHTML = write;
+    }
+
+    function fibonacidivide(a){
+        let num1 = 0;
+        let num2 = 1;
+        let num = 1;
+        let num3 = num1+num2;
+        let write= "";
+        let i = 0;
+        while(i < 5000000) {
+            i++;
+            num3 = num1 + num2;
+            if (num3 % a == 0){
+                write = num3;
+                break;
+            }
+            num1 = num2;
+            num2 = num3;
+        }
+        document.getElementById("output").innerHTML = write;
+    }
+
+    function sumfibonaci(n){
+        let num1 = 0;
+        let num2 = 1;
+        let num = 1;
+        let num3 = num1+num2;
+        let sumfibo = 0;
+        let write= "";
+        let i = 0;
+        while(i < n) {
+            i++;
+            num3 = num1 + num2;
+            sumfibo = sumfibo + num3;
+            write = sumfibo;
+            num1 = num2;
+            num2 = num3;
+        }
+        document.getElementById("output").innerHTML = write;
+    }
+
+    function divide7(n,a){
+        let sum = 0;
+        let count =0;
+        let i = 0;
+        let write= "";
+        alert(i);
+        while (count <= n){
+            i++;
+            alert(i);
+            if(i % a == 0){
+                count = count + 1;
+                sum = sum + i;
+            }
+            alert(sum);
+            write = sum;
+        }
+        document.getElementById("output").innerHTML = write;
+    }
+</script>
+</html>
